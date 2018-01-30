@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#696969">
+
+    <RelativeLayout
+        android:id="@+id/dd"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <mlearn.sabachina.com.cn.vitamio.VideoView
+            android:id="@+id/vitamio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
+
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/buffer_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/dd"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="12dp"
+                android:textColor="#e6ff01" />
+
+            <TextView
+                android:id="@+id/net_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="12dp"
+                android:textColor="#04fa00" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

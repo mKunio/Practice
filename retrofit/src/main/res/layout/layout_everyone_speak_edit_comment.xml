@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:id="@+id/edit_comment_layout"
+    android:background="#ffffff">
+
+    <TextView
+        android:id="@+id/keep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:text="保存"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/keep"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/keep"
+        android:gravity="center_vertical"
+        android:text="取消"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/mark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/keep"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp"
+        android:gravity="end"
+        android:text="0字"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp" />
+
+
+    <EditText
+        android:id="@+id/edit_comment"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignStart="@id/keep"
+        android:layout_below="@id/keep"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape_no_corner_stroke_background"
+        android:gravity="left|top"
+        android:paddingEnd="10dp"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp"
+        android:visibility="visible" />
+</RelativeLayout>

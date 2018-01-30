@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Practice.iml" filepath="$PROJECT_DIR$/Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Video/Video.iml" filepath="$PROJECT_DIR$/Video/Video.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WXLikeVideoRecorderLib/WXLikeVideoRecorderLib.iml" filepath="$PROJECT_DIR$/WXLikeVideoRecorderLib/WXLikeVideoRecorderLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/camera/camera.iml" filepath="$PROJECT_DIR$/camera/camera.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cameraapplication/cameraapplication.iml" filepath="$PROJECT_DIR$/cameraapplication/cameraapplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/circle/circle.iml" filepath="$PROJECT_DIR$/circle/circle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/designpattern/designpattern.iml" filepath="$PROJECT_DIR$/designpattern/designpattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gridview/gridview.iml" filepath="$PROJECT_DIR$/gridview/gridview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ijkplayer/ijkplayer.iml" filepath="$PROJECT_DIR$/ijkplayer/ijkplayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ijktestplayer/ijktestplayer.iml" filepath="$PROJECT_DIR$/ijktestplayer/ijktestplayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jumpsettingpage/jumpsettingpage.iml" filepath="$PROJECT_DIR$/jumpsettingpage/jumpsettingpage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/okhttp/okhttp.iml" filepath="$PROJECT_DIR$/okhttp/okhttp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/photoselect/photoselect.iml" filepath="$PROJECT_DIR$/photoselect/photoselect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/practiceview/practiceview.iml" filepath="$PROJECT_DIR$/practiceview/practiceview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recordvideo/recordvideo.iml" filepath="$PROJECT_DIR$/recordvideo/recordvideo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/retrofit/retrofit.iml" filepath="$PROJECT_DIR$/retrofit/retrofit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tab/tab.iml" filepath="$PROJECT_DIR$/tab/tab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vedioplayer/vedioplayer.iml" filepath="$PROJECT_DIR$/vedioplayer/vedioplayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vitamio/vitamio.iml" filepath="$PROJECT_DIR$/vitamio/vitamio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vitamioLibrary/vitamioLibrary.iml" filepath="$PROJECT_DIR$/vitamioLibrary/vitamioLibrary.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,2 @@
+include ':app', ':gridview', ':tab',':circle', ':vedioplayer', ':okhttp', ':practiceview', ':vitamio', ':vitamioLibrary',':recordvideo', ':WXLikeVideoRecorderLib', ':Video',':camera', ':cameraapplication', ':designpattern', ':retrofit', ':jumpsettingpage',':ijktestplayer', ':ijkplayer',':photoselect'
+

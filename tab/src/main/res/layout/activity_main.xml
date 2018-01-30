@@ -1,0 +1,43 @@
+<com.cpoopc.scrollablelayoutlib.ScrollableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--the frist childview will follow the scrollview scroll.-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@mipmap/default_cover" />
+
+    <!--the second childview will be a navigator.
+    it will be sticking on the top when ItemView scrolls,
+    it's not necessary to add if you don't want-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="?attr/colorPrimary"
+            app:tabIndicatorColor="@color/colorAccent"
+            app:tabIndicatorHeight="4dp"
+            app:tabSelectedTextColor="#000"
+            app:tabTextColor="#fff" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.67dp"
+            android:background="#999" />
+    </LinearLayout>
+    <!--ScrollView support ViewPager, RecyclerView, ScrollView, ListView, WebView-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</com.cpoopc.scrollablelayoutlib.ScrollableLayout>

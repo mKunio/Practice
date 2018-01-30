@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+
+    defaultConfig {
+        applicationId "mlearn.sabachina.com.cn.circle"
+        minSdkVersion 17
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+        //开发环境
+        develop {
+            buildConfigField "int", "ENV_TYPE", "1"
+            applicationId 'mlearn.sabachina.com.cn.circle'
+            manifestPlaceholders = [
+                    app_name: "开"
+            ]
+        }
+        //测试环境
+        check {
+            buildConfigField "int", "ENV_TYPE", "2"
+            applicationId 'mlearn.sabachina.com.cn.circle'
+            manifestPlaceholders = [
+                    app_name: "测",
+            ]
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:26.+'
+    testCompile 'junit:junit:4.12'
+    // 与状态栏相关
+    compile 'com.gyf.barlibrary:barlibrary:2.3.0'
+    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+}
