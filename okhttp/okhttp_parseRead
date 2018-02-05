@@ -1,0 +1,97 @@
+1.OkHttp源码：
+  http://114.215.70.229/portal/mvc/service/cmn.json   parse过程
+  pos = 0
+
+  limit= 完整长度
+
+  将http截出当做scheme 然后pos变为5（加上了http：的长度）
+
+  计算斜线的数量，继续从pos的位置开始计算，当遇到斜线就加1，不是斜线就break
+
+  pos的位置继续加上斜线的数量 变为了7
+
+  继续查询串：找出主机地址，就是http双斜线开始找遇到的第一个单斜线停止就是host地址，同时为port赋值（当时http的时候为80，https的时候是443）
+
+  此时pos继续加上主机地址之后的长度，之后查询就是从  /portal/mvc/service/cmn.json 之中解析
+
+  http://114.215.70.229/portal/mvc/service/cmn.json
+  经过解析之后返回HttpUrl，此时类型：http,主机：114.215.70.229 端口默认80，地址/portal/mvc/service/cmn.json
+
+2. Call call = okHttpClient.newCall(request); 返回 RealCall对象
+3.getResponseWithInterceptorChain方法返回response： response是由层层的Interceptor的intercept(Chain chain)和Chain的proceed方法内部嵌套调用返回
+  Response getResponseWithInterceptorChain() throws IOException {
+        // Build a full stack of interceptors.
+        List<Interceptor> interceptors = new ArrayList<>();
+        interceptors.addAll(client.interceptors());
+        interceptors.add(retryAndFollowUpInterceptor);
+        interceptors.add(new BridgeInterceptor(client.cookieJar()));
+        interceptors.add(new CacheInterceptor(client.internalCache()));
+        interceptors.add(new ConnectInterceptor(client));
+        if (!forWebSocket) {
+          interceptors.addAll(client.networkInterceptors());
+        }
+        interceptors.add(new CallServerInterceptor(forWebSocket));
+
+        Interceptor.Chain chain = new RealInterceptorChain(
+            interceptors, null, null, null, 0, originalRequest);
+        return chain.proceed(originalRequest);
+  }
+4.retryAndFollowUpInterceptor拦截器：创建StreamAllocation对象，便于后面创建
+  StreamAllocation streamAllocation = new StreamAllocation(
+          client.connectionPool(), createAddress(request.url()), callStackTrace);
+
+5.BridgeInterceptor拦截器：                                     //主要添加header，将数据封装为后续写的格式以及解析返回的response
+    Request userRequest = chain.request();                     //返回我们的request
+    Request.Builder requestBuilder = userRequest.newBuilder(); //构造新的builder便于添加固定头部
+    if (userRequest.header("Host") == null) {
+       requestBuilder.header("Host", hostHeader(userRequest.url(), false));
+    }
+
+    if (userRequest.header("Connection") == null) {
+       requestBuilder.header("Connection", "Keep-Alive");
+    }
+
+6.ConnectInterceptor拦截器： 创建网络请求所需要的连接，保证HttpCodec进行请求 包括三次握手之类的操作都在此进行
+ public Response intercept(Chain chain) throws IOException {
+    RealInterceptorChain realChain = (RealInterceptorChain) chain;
+    Request request = realChain.request();
+    StreamAllocation streamAllocation = realChain.streamAllocation(); 这个StreamAllocation就是由retryAndFollowUpInterceptor拦截器创建的
+
+    boolean doExtensiveHealthChecks = !request.method().equals("GET");
+
+    由StreamAllocation创建HttpCodec
+
+    Http1Codec中的source, sink对象是如下创建的：
+
+    寻找健康的连接
+    RealConnection resultConnection = findHealthyConnection(connectTimeout, readTimeout,
+              writeTimeout, connectionRetryEnabled, doExtensiveHealthChecks);
+
+    上述代码内部会调用RealConnection内部的connect函数,进而调用connectTl函数
+    内部是： source = Okio.buffer(Okio.source(socket));
+            sink = Okio.buffer(Okio.sink(socket));   将socket封装进去  涉及到装饰者模式  联想到java io操作
+
+    其实是new Http1Codec(client, streamAllocation, source, sink);
+    HttpCodec httpCodec = streamAllocation.newStream(client, doExtensiveHealthChecks);
+    RealConnection connection = streamAllocation.connection();
+
+    return realChain.proceed(request, streamAllocation, httpCodec, connection);
+  }
+  7.CallServerInterceptor拦截器：最终进行网络请求
+
+      7.1 httpCodec.writeRequestHeaders(request); 写头部与请求行
+
+      其中请求行格式：method  空格 URL 空格 协议版本  \r\n   请求行
+                     name : value  \r\n
+                           .
+                           .                               请求头
+                           .
+                     name : value \r\n
+                     \r\n
+
+      设：请求报文采用GET方法、 URL地址 = http://www.tsinghua.edu.cn/chn/yxsz/index.htm；、HTTP1.1版本
+          则 请求行是：GET /chn/yxsz/index.htm HTTP/1.1
+      7.2  写请求体：
+
+   在写的过程中，利用Okio封装socket的方式写，类似于java io的装饰者模式，
+   最终都是有socket的写操作进行写的socket.getOutputStream() 返回的OutputStream进行写操作
