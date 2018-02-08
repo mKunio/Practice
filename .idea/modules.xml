@@ -16,9 +16,9 @@
       <module fileurl="file://$PROJECT_DIR$/jumpsettingpage/jumpsettingpage.iml" filepath="$PROJECT_DIR$/jumpsettingpage/jumpsettingpage.iml" />
       <module fileurl="file://$PROJECT_DIR$/okhttp/okhttp.iml" filepath="$PROJECT_DIR$/okhttp/okhttp.iml" />
       <module fileurl="file://$PROJECT_DIR$/photoselect/photoselect.iml" filepath="$PROJECT_DIR$/photoselect/photoselect.iml" />
-      <module fileurl="file://$PROJECT_DIR$/practiceview/practiceview.iml" filepath="$PROJECT_DIR$/practiceview/practiceview.iml" />
       <module fileurl="file://$PROJECT_DIR$/recordvideo/recordvideo.iml" filepath="$PROJECT_DIR$/recordvideo/recordvideo.iml" />
       <module fileurl="file://$PROJECT_DIR$/retrofit/retrofit.iml" filepath="$PROJECT_DIR$/retrofit/retrofit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxjava/rxjava.iml" filepath="$PROJECT_DIR$/rxjava/rxjava.iml" />
       <module fileurl="file://$PROJECT_DIR$/tab/tab.iml" filepath="$PROJECT_DIR$/tab/tab.iml" />
       <module fileurl="file://$PROJECT_DIR$/vedioplayer/vedioplayer.iml" filepath="$PROJECT_DIR$/vedioplayer/vedioplayer.iml" />
       <module fileurl="file://$PROJECT_DIR$/vitamio/vitamio.iml" filepath="$PROJECT_DIR$/vitamio/vitamio.iml" />
