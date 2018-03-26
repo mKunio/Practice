@@ -68,4 +68,7 @@
         <attr name="inside_color" format="color" />
         <attr name="circle_width" format="float" />
     </declare-styleable>
+    <declare-styleable name="LabelView">
+        <attr name="background_color" format="color" />
+    </declare-styleable>
 </resources>

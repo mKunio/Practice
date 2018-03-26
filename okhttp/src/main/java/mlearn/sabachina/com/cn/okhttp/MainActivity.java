@@ -1,5 +1,6 @@
 package mlearn.sabachina.com.cn.okhttp;
 
+import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,7 +33,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Picasso.with(this).load("").into(new ImageView(this));
+        Picasso.with(this).load("")
+                .config(Bitmap.Config.RGB_565)
+                .resize(20,20)
+                .into(new ImageView(this));
         set(null);
     }
 

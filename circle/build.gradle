@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         applicationId "mlearn.sabachina.com.cn.circle"
@@ -20,9 +20,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions("ss")
     productFlavors {
         //开发环境
         develop {
+            dimension "ss"
             buildConfigField "int", "ENV_TYPE", "1"
             applicationId 'mlearn.sabachina.com.cn.circle'
             manifestPlaceholders = [
@@ -31,6 +33,7 @@ android {
         }
         //测试环境
         check {
+            dimension "ss"
             buildConfigField "int", "ENV_TYPE", "2"
             applicationId 'mlearn.sabachina.com.cn.circle'
             manifestPlaceholders = [

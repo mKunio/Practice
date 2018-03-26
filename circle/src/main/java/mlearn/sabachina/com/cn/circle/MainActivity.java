@@ -14,10 +14,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CircleHalfSectorView view = (CircleHalfSectorView) findViewById(R.id.v);
-        view.startAnimation(0.7f);
-        ImmersionBar.with(this).statusBarColor(R.color.colorAccent).init();
-        Toast.makeText(this, "" + BuildConfig.ENV_TYPE, Toast.LENGTH_SHORT).show();
+//        CircleHalfSectorView view = (CircleHalfSectorView) findViewById(R.id.v);
+//        view.startAnimation(0.7f);
+//        ImmersionBar.with(this).statusBarColor(R.color.colorAccent).init();
+//        Toast.makeText(this, "" + BuildConfig.ENV_TYPE, Toast.LENGTH_SHORT).show();
 //        RecyclerView recyclerView = new RecyclerView(this);
 //        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));
 //        recyclerView.setAdapter(null);

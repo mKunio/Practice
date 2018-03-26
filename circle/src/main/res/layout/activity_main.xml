@@ -5,8 +5,13 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <mlearn.sabachina.com.cn.circle.CircleHalfSectorView
+    <mlearn.sabachina.com.cn.circle.LabelView
         android:id="@+id/v"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="20dp"
+        android:layout_height="65dp"
+        android:gravity="center_horizontal"
+        android:text="未完成"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:background_color="@color/colorPrimary" />
 </LinearLayout>
