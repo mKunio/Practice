@@ -62,11 +62,13 @@
         <attr name="passiveName" format="string" />
     </declare-styleable>
 
-    <declare-styleable name="CircleHalfSectorView">
+    <declare-styleable name="SectorIndicatorView">
         <attr name="progress" format="float" />
-        <attr name="outside_color" format="color" />
+        <attr name="strokeColor" format="color" />
         <attr name="inside_color" format="color" />
-        <attr name="circle_width" format="float" />
+        <attr name="circle_width" format="dimension" />
+        <attr name="animation_require" format="boolean" />
+        <attr name="animation_duration" format="integer" />
     </declare-styleable>
     <declare-styleable name="LabelView">
         <attr name="background_color" format="color" />

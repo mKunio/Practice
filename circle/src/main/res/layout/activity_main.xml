@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <mlearn.sabachina.com.cn.circle.LabelView
+    <mlearn.sabachina.com.cn.circle.SectorIndicatorView
         android:id="@+id/v"
         android:layout_width="20dp"
-        android:layout_height="65dp"
+        android:layout_height="20dp"
         android:gravity="center_horizontal"
-        android:text="未完成"
-        android:textColor="@android:color/white"
-        android:textSize="14sp"
-        app:background_color="@color/colorPrimary" />
+        app:inside_color="@color/colorPrimary"
+        app:strokeColor="@color/colorAccent"
+        app:circle_width="3dp"
+        app:progress="0.5" />
 </LinearLayout>
